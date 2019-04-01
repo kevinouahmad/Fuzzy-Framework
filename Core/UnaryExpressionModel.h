@@ -1,0 +1,8 @@
+//
+// Created by Kevin Degraw on 01/04/2019.
+//
+
+#ifndef FUZZY_UNARYEXPRESSIONMODEL_H
+#define FUZZY_UNARYEXPRESSIONMODEL_H
+
+#endif //FUZZY_UNARYEXPRESSIONMODEL_H

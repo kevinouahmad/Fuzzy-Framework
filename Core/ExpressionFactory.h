@@ -1,0 +1,8 @@
+//
+// Created by Kevin Degraw on 01/04/2019.
+//
+
+#ifndef FUZZY_EXPRESSIONFACTORY_H
+#define FUZZY_EXPRESSIONFACTORY_H
+
+#endif //FUZZY_EXPRESSIONFACTORY_H
