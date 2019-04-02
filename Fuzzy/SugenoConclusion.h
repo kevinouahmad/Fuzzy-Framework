@@ -5,4 +5,9 @@
 #ifndef FUZZY_SUGENOCONCLUSION_H
 #define FUZZY_SUGENOCONCLUSION_H
 
+namespace fuzzy
+{
+
+}
+
 #endif //FUZZY_SUGENOCONCLUSION_H

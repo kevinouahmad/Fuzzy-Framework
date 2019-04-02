@@ -5,4 +5,9 @@
 #ifndef FUZZY_ISTRIANGLE_H
 #define FUZZY_ISTRIANGLE_H
 
+namespace fuzzy
+{
+
+}
+
 #endif //FUZZY_ISTRIANGLE_H

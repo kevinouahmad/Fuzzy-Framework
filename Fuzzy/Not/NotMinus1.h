@@ -4,5 +4,8 @@
 
 #ifndef FUZZY_NOTMINUS1_H
 #define FUZZY_NOTMINUS1_H
+namespace fuzzy
+{
 
+}
 #endif //FUZZY_NOTMINUS1_H

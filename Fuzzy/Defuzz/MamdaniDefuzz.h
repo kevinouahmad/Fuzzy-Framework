@@ -5,4 +5,9 @@
 #ifndef FUZZY_MAMDANIDEFUZZ_H
 #define FUZZY_MAMDANIDEFUZZ_H
 
+namespace fuzzy
+{
+
+}
+
 #endif //FUZZY_MAMDANIDEFUZZ_H

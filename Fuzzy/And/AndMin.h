@@ -11,7 +11,7 @@
 
 using namespace core;
 
-namespace operators
+namespace fuzzy
 {
     template <class T>
     class AndMin : public And<T>

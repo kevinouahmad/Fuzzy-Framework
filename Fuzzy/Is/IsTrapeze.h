@@ -5,4 +5,9 @@
 #ifndef FUZZY_ISTRAPEZE_H
 #define FUZZY_ISTRAPEZE_H
 
+namespace fuzzy
+{
+
+}
+
 #endif //FUZZY_ISTRAPEZE_H
