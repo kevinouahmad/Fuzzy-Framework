@@ -5,4 +5,9 @@
 #ifndef FUZZY_FUZZYFACTORY_H
 #define FUZZY_FUZZYFACTORY_H
 
+namespace fuzzy
+{
+
+}
+
 #endif //FUZZY_FUZZYFACTORY_H

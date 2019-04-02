@@ -9,7 +9,7 @@
 
 using namespace core;
 
-namespace operators
+namespace fuzzy
 {
     template <class T>
     class AggMax : public AggMax<T>

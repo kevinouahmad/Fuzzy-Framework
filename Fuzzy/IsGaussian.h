@@ -5,4 +5,9 @@
 #ifndef FUZZY_ISGAUSSIAN_H
 #define FUZZY_ISGAUSSIAN_H
 
+namespace fuzzy
+{
+
+}
+
 #endif //FUZZY_ISGAUSSIAN_H

@@ -9,7 +9,8 @@
 
 using namespace core;
 
-namespace operators {
+namespace fuzzy
+{
     template <class T>
     class AndMult : public And<T>
     {

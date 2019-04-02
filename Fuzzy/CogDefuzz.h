@@ -5,4 +5,9 @@
 #ifndef FUZZY_COGDEFUZZ_H
 #define FUZZY_COGDEFUZZ_H
 
+namespace fuzzy
+{
+
+}
+
 #endif //FUZZY_COGDEFUZZ_H
