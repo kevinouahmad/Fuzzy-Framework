@@ -6,7 +6,7 @@
 #define FUZZY_UNARYEXPRESSIONMODEL_H
 
 #include "UnaryExpression.h"
-#include "Expression.h"
+#include "../Expression.h"
 
 namespace core
 {

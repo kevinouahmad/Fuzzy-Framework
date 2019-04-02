@@ -5,7 +5,7 @@
 #ifndef FUZZY_NOT_H
 #define FUZZY_NOT_H
 
-#include "../Expressions/BinaryExpression.h"
+#include "../Expressions/Binary/BinaryExpression.h"
 
 namespace core
 {

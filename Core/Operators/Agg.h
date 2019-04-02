@@ -5,7 +5,7 @@
 #ifndef FUZZY_AGG_H
 #define FUZZY_AGG_H
 
-#include "../Expressions/BinaryExpression.h"
+#include "../Expressions/Binary/BinaryExpression.h"
 
 namespace core
 {

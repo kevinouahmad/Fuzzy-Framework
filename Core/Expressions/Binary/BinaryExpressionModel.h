@@ -6,7 +6,7 @@
 #define FUZZY_BINARYEXPRESSIONMODEL_H
 
 #include "BinaryExpression.h"
-#include "Expression.h"
+#include "../Expression.h"
 
 namespace core
 {
