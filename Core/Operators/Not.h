@@ -5,15 +5,15 @@
 #ifndef FUZZY_NOT_H
 #define FUZZY_NOT_H
 
-#include "../Expressions/Binary/BinaryExpression.h"
+#include "../Expressions/Unary/UnaryExpression.h"
 
 namespace core
 {
     template <class T>
-    class Not :public BinaryExpression<T>
+    class Not :public UnaryExpression<T>
     {
     public:
-        virtual T evaluate(Expression<T>*, Expression<T>*) const = 0;
+        virtual T evaluate(Expression<T>*) const = 0;
     };
 }
 
