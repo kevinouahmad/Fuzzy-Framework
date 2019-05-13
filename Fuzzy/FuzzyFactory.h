@@ -24,7 +24,7 @@ namespace fuzzy
         BinaryExpressionModel<T>* newOr(Expression<T>*,Expression<T>*);
         BinaryExpressionModel<T>* newThen(Expression<T>*,Expression<T>*);
         BinaryExpressionModel<T>* newAgg(Expression<T>*,Expression<T>*);
-        //BinaryExpressionModel<T>* newDefuzz(Expression<T>*,Expression<T>*);
+        BinaryExpressionModel<T>* newDefuzz(Expression<T>*,Expression<T>*);
         UnaryExpressionModel<T>* newNot(Expression<T>*);
         Expression<T>* newIs(core::Is<T>*,Expression<T>*);
 
@@ -32,7 +32,7 @@ namespace fuzzy
         void changeOr(Or<T>* o);
         void changeNot(Not<T>* o);
         void changeThen(Then<T>* o);
-        //void changeDefuzz(Defuzz<T>* o);
+        void changeDefuzz(Defuzz<T>* o);
         void changeAgg(Agg<T>* o);
         void changeIs(Is<T>* o);
 
@@ -42,7 +42,7 @@ namespace fuzzy
         BinaryShadowExpression<T>* opAnd;
         BinaryShadowExpression<T>* opOr;
         BinaryShadowExpression<T>* opThen;
-        //BinaryShadowExpression<T>* opDefuzz;
+        BinaryShadowExpression<T>* opDefuzz;
         BinaryShadowExpression<T>* opAgg;
 };
 
@@ -76,12 +76,12 @@ namespace fuzzy
     {
         return newBinary(opAgg,l,r);
     }
-/*
+
     template <class T>
     BinaryExpressionModel<T>* FuzzyFactory::newDefuzz(Expression<T>* l, Expression<T>* r)
     {
         return newBinary(opDefuzz,l,r);
-    }*/
+    }
 
     template <class T>
     UnaryExpressionModel<T>* FuzzyFactory::newNot(Expression<T>* o)
@@ -119,12 +119,12 @@ namespace fuzzy
     void FuzzyFactory<T>::changeNot(Not <T> *o) {
         opNot->setTarget(o);
     }
-/*
+
     template<class T>
     void FuzzyFactory<T>::changeDefuzz(Defuzz<T>* o)
     {
         opDefuzz->setTarget(o);
-    }*/
+    }
 
     template<class T>
     void changeIs(Is<T>* o)
