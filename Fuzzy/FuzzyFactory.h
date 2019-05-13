@@ -50,7 +50,7 @@ namespace fuzzy
     FuzzyFactory<T>::FuzzyFactory(UnaryExpression<T>* _opNot, BinaryExpression<T>* _opAnd, BinaryExpression<T>* _opOr, BinaryExpression<T>* _opThen,BinaryExpression<T>* _opAgg/*,BinaryExpression<T>* _opDefuzz*/):
         opNot(new UnaryShadowExpression<T>(_opNot)),opAnd(new BinaryShadowExpression<T>(_opAnd)),
         opOr(new BinaryShadowExpression<T>(_opOr)),opThen(new BinaryShadowExpression<T>(_opThen)),
-        opAgg(new BinaryShadowExpression<T>(_opAgg))/*,opDefuzz(new BinaryShadowExpression<T>(_opDefuzz))*/
+        opAgg(new BinaryShadowExpression<T>(_opAgg)),opDefuzz(new BinaryShadowExpression<T>(_opDefuzz))
     {}
 
     template <class T>
