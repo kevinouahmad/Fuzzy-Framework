@@ -5,6 +5,8 @@
 #ifndef FUZZY_BINARYEXPRESSION_H
 #define FUZZY_BINARYEXPRESSION_H
 
+#include "../Expression.h"
+
 namespace core
 {
     template <class T>

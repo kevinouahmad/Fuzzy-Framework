@@ -5,25 +5,19 @@
 #ifndef FUZZY_AGGMAX_H
 #define FUZZY_AGGMAX_H
 
-#include "../../Core/Operators/Then.h"
 #include "../../Core/Expressions/Expression.h"
+#include "../../Core/Operators/Agg.h"
 
 using namespace core;
 
 namespace fuzzy
 {
     template <class T>
-    class AggMax : public AggMax<T>
+    class AggMax : public Agg<T>
     {
     public:
-        AggMax();
-        virtual ~AggMax() {};
         T evaluate(Expression<T>*, Expression<T>*) const;
     };
-
-    template <class T>
-    AggMax<T>::AggMax() {
-    }
 
     template <class T>
     T AggMax<T>::evaluate(Expression<T>* left, Expression<T>* right) const {

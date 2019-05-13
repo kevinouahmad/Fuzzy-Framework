@@ -5,25 +5,22 @@
 #ifndef FUZZY_VALUEMODEL_H
 #define FUZZY_VALUEMODEL_H
 
+#include "Expressions/Expression.h"
+
 namespace core
 {
     template <class T>
     class ValueModel : public Expression<T>
     {
     public :
-        ValueModel();
         ValueModel(const T&);
         T evaluate() const;
         void setValue(const T&);
+        T getValue();
 
     private:
         T value;
     };
-
-    template <class T>
-    ValueModel<T>::ValueModel() :
-            value(T(0))
-    {}
 
     template <class T>
     ValueModel<T>::ValueModel(const T& _value):
@@ -40,6 +37,11 @@ namespace core
     void ValueModel<T>::setValue(const T& _value)
     {
         value = _value;
+    }
+
+    template <typename T>
+    T ValueModel<T>::getValue() {
+        return value;
     }
 }
 

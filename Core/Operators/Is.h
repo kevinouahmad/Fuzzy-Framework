@@ -5,7 +5,8 @@
 #ifndef FUZZY_IS_H
 #define FUZZY_IS_H
 
-#include "UnaryExpression.h"
+#include "../Expressions/Unary/UnaryExpression.h"
+#include "../Expressions/Expression.h"
 
 namespace core{
 

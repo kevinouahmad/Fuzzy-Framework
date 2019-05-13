@@ -5,4 +5,44 @@
 #ifndef FUZZY_BINARYSHADOWEXPRESSION_H
 #define FUZZY_BINARYSHADOWEXPRESSION_H
 
+#include "BinaryExpression.h"
+
+namespace core {
+    template <typename T>
+    class BinaryShadowExpression :public BinaryExpression<T> {
+    public:
+        BinaryShadowExpression(BinaryShadowExpression<T>* target = nullptr);
+        virtual T evaluate(Expression<T>*, Expression<T>*) const;
+        BinaryExpression<T>* getTarget() const;
+        void setTarget(BinaryExpression<T>*);
+
+
+    private:
+        BinaryExpression<T> *target;
+    };
+
+    template <typename T>
+    BinaryShadowExpression<T>::BinaryShadowExpression(core::BinaryShadowExpression<T> *_target) : target(_target){}
+
+    template <typename T>
+    T BinaryShadowExpression<T>::evaluate(core::Expression<T> *left, core::Expression<T> *right) const {
+        if (target != nullptr) {
+            return target->evaluate(left, right);
+        }
+        throw exceptions::NullPointerException("Target isn't defined");
+    }
+
+    template <typename T>
+    BinaryExpression<T>* BinaryShadowExpression<T>::getTarget() const {
+        return target;
+    }
+
+    template <typename T>
+    void BinaryShadowExpression<T>::setTarget(core::BinaryExpression<T> *tar) {
+        target = tar;
+    }
+
+
+
+}
 #endif //FUZZY_BINARYSHADOWEXPRESSION_H

@@ -13,8 +13,7 @@ namespace core
     template <class T>
     class BinaryExpressionModel :public Expression<T>, public BinaryExpression<T> {
     public:
-        BinaryExpressionModel(BinaryExpression<T>* = NULL, Expression<T>* = NULL, Expression<T>* = NULL);
-        ~BinaryExpressionModel() {};
+        BinaryExpressionModel(BinaryExpression<T>* op, Expression<T>* left, Expression<T>* right);
 
         Expression<T>* getLeft() const;
         Expression<T>* getRight() const;
@@ -29,13 +28,13 @@ namespace core
     private:
         Expression<T>* left;
         Expression<T>* right;
-        BinaryExpression<T>* oper;
+        BinaryExpression<T>* op;
     };
 
     template <class T>
 
-    BinaryExpressionModel<T>::BinaryExpressionModel(BinaryExpression<T>*_oper, Expression<T>*_left, Expression<T>*_right) :
-            oper(_oper), left(_left), right(_right) {}
+    BinaryExpressionModel<T>::BinaryExpressionModel(BinaryExpression<T>*_op, Expression<T>*_left, Expression<T>*_right) :
+            op(_op), left(_left), right(_right) {}
 
     template <class T>
     Expression<T>* BinaryExpressionModel<T>::getLeft() const
@@ -52,7 +51,7 @@ namespace core
     template <class T>
     BinaryExpression<T>* BinaryExpressionModel<T>::getOperator()
     {
-        return oper;
+        return op;
     }
 
     template <class T>
@@ -68,9 +67,9 @@ namespace core
     }
 
     template <class T>
-    void BinaryExpressionModel<T>::setOperator(BinaryExpression<T>*_ope)
+    void BinaryExpressionModel<T>::setOperator(BinaryExpression<T>*_op)
     {
-        ope = *_ope;
+        op = *_op;
     }
 
     template <class T>
@@ -82,10 +81,10 @@ namespace core
     }
 
     template <class T>
-    T BinaryExpressionModel<T>::evaluate(Expression<T>* l, Expression<T>* r) const
+    T BinaryExpressionModel<T>::evaluate(Expression<T>* left, Expression<T>* right) const
     {
         if (oper != NULL)
-            return oper->evaluate(l, r);
+            return oper->evaluate(left, right);
         return NULL;
     }
 }

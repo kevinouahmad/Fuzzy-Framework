@@ -14,13 +14,13 @@ namespace core
     class UnaryExpressionModel :public Expression<T>, public UnaryExpression<T>
     {
     public:
-        UnaryExpressionModel(UnaryExpression<T>* = NULL, Expression<T>* = NULL);
+        UnaryExpressionModel(UnaryExpression<T>*, Expression<T>*);
 
         T evaluate() const;
         T evaluate(Expression<T>*) const;
 
         UnaryExpression<T>* getOperator();
-        Expression<T> getOperand();
+        Expression<T>* getOperand();
         void setOperator(UnaryExpression<T>*);
         void setOperand(Expression<T>*);
 
@@ -37,16 +37,18 @@ namespace core
     template <class T>
     T UnaryExpressionModel<T>::evaluate() const
     {
-        if (operand != NULL)
+        if (operand != NULL) {
             return evaluate(operand);
+        }
         return NULL;
     }
 
     template <class T>
     T UnaryExpressionModel<T>::evaluate(Expression<T>* o) const
     {
-        if (ope != NULL)
+        if (ope != NULL) {
             return ope->evaluate(o);
+        }
         return NULL;
     }
 
@@ -57,7 +59,7 @@ namespace core
     }
 
     template <class T>
-    UnaryExpression<T>* UnaryExpressionModel<T>::getOperand()
+    Expression<T>* UnaryExpressionModel<T>::getOperand()
     {
         return operand;
     }

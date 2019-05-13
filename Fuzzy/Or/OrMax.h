@@ -17,14 +17,8 @@ namespace fuzzy
     class OrMax : public Or<T>
     {
     public:
-        OrMax();
-        virtual ~OrMax() {};
         T evaluate(Expression<T>*, Expression<T>*) const;
     };
-
-    template <class T>
-    OrMax<T>::OrMax() {
-    }
 
     template <class T>
     T OrMax<T>::evaluate(Expression<T>* left, Expression<T>* right) const {

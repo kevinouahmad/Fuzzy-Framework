@@ -5,6 +5,10 @@
 #ifndef FUZZY_FUZZYFACTORY_H
 #define FUZZY_FUZZYFACTORY_H
 
+#include "../Core/Expressions/Nary/NaryExpression.h"
+
+using namespace core;
+
 namespace fuzzy
 {
 

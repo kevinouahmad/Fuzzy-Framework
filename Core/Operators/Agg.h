@@ -6,6 +6,7 @@
 #define FUZZY_AGG_H
 
 #include "../Expressions/Binary/BinaryExpression.h"
+#include "../Expressions/Expression.h"
 
 namespace core
 {

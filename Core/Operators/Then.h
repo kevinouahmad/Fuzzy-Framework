@@ -6,6 +6,7 @@
 #define FUZZY_THEN_H
 
 #include "../Expressions/Binary/BinaryExpression.h"
+#include "../Expressions/Expression.h"
 
 namespace core
 {

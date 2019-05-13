@@ -17,20 +17,12 @@ namespace fuzzy
     class AndMult : public And<T>
     {
     public:
-        AndMult();
-        virtual ~AndMult() {};
         T evaluate(Expression<T>*, Expression<T>*) const;
     };
 
     template <class T>
-    AndMult<T>::AndMult() {
-    }
-
-    template <class T>
     T AndMult<T>::evaluate(Expression<T>* left, Expression<T>* right) const {
-        T lv = left->evaluate();
-        T rv = right->evaluate();
-        return lv * rv;
+        return left->evaluate() * right->evaluate();
     }
 }
 

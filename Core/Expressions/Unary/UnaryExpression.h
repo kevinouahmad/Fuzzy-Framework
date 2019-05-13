@@ -5,6 +5,8 @@
 #ifndef FUZZY_UNARYEXPRESSION_H
 #define FUZZY_UNARYEXPRESSION_H
 
+#include "../Expression.h"
+
 namespace core
 {
     template <class T>

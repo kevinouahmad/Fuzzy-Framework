@@ -6,7 +6,6 @@
 #define FUZZY_THENMIN_H
 
 #include "../../Core/Operators/Then.h"
-#include "../../Core/Operators/Or.h"
 #include "../../Core/Expressions/Expression.h"
 
 
@@ -15,17 +14,11 @@ using namespace core;
 namespace fuzzy
 {
     template <class T>
-    class ThenMin : public Or<T>
+    class ThenMin : public Then<T>
     {
     public:
-        ThenMin();
-        virtual ~ThenMin() {};
         T evaluate(Expression<T>*, Expression<T>*) const;
     };
-
-    template <class T>
-    ThenMin<T>::ThenMin() {
-    }
 
     template <class T>
     T ThenMin<T>::evaluate(Expression<T>* left, Expression<T>* right) const {
