@@ -13,7 +13,7 @@ namespace core
     class UnaryExpression
     {
     public:
-        virtual T evaluate(Expression<T>*) const = 0;
+        virtual T evaluate(Expression<T>*);
     };
 }
 

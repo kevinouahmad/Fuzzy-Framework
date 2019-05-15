@@ -11,33 +11,41 @@ namespace core {
     template <typename T>
     class NaryExpressionModel : public NaryExpression<T>, public Expression<T> {
     public:
-        NaryExpressionModel(NaryExpression<T>*, std::vector<Expression<T>*>*);
+        NaryExpressionModel(NaryExpression<T> *ope, std::vector<Expression<T>*> *operands);
+        virtual ~NaryExpressionModel() = default;
+
         virtual T evaluate() const;
-        virtual T evaluate(std::vector<Expression<T>*>) const;
+        virtual T evaluate(std::vector<Expression<T>*> *operands) const;
 
     private:
-        NaryExpression<T> *op;
-        std::vector<Expression<T>*> operands;
+        NaryExpression<T> *ope; // n-ary operator
+        std::vector<Expression<T>*> *operands;
     };
 
-    template <typename T>
-    NaryExpressionModel<T>::NaryExpressionModel(NaryExpression<T> *_op, std::vector<Expression<T>*> *operands) : op(_op),
-                                                                                                                operands(_operands) {}
+    template<typename T>
+    NaryExpressionModel<T>::NaryExpressionModel(NaryExpression<T>* ope,
+                                                std::vector<Expression<T>*> *operands) :
+            ope(ope), operands(operands) {
+    }
 
-    template <typename T>
+    template<typename T>
     T NaryExpressionModel<T>::evaluate() const {
-        if (!operands->empty()) {
-            return op->evaluate(operands);
+        if (operands->empty()) {
+            return NULL;
         }
-        return NULL;
+        return evaluate(operands);
     }
 
-    template <typename T>
-    T NaryExpressionModel<T>::evaluate(std::vector<core::Expression<T>*> operands) const {
-        if (!operands->empty() && op != nullptr) {
-            return op->evaluate(operands);
+    template<typename T>
+    T NaryExpressionModel<T>::evaluate(std::vector<Expression<T>*> *operands) const {
+        if (operands->empty()) {
+            return NULL;
         }
-        return NULL;
+        if (ope == NULL) {
+            return NULL;
+        }
+        return ope->evaluate(operands);
     }
+
 }
 #endif //FUZZY_NARYEXPRESSIONMODEL_H

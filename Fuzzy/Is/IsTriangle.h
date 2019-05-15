@@ -26,8 +26,11 @@ namespace fuzzy
 
     template <typename T>
     T IsTriangle<T>::evaluate(Expression<T> *expression) {
-        T value = expression->evaluate();
-        return (value >= end || value <= start) ? 0 : value >= peak ? (end - value)(end - peak) : (peak - value)/(peak - start);
+        T eval = expression->evaluate();
+        if (eval < start || eval > end) {
+            return 0;
+        }
+        return (eval < peak) ? (eval-start)/(peak-start) : (end-eval)/(end-peak);
     }
 }
 

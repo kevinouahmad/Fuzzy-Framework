@@ -11,6 +11,7 @@
 #include "Binary/BinaryExpression.h"
 #include "Unary/UnaryExpression.h"
 #include "Nary/NaryExpression.h"
+#include "Nary/NaryExpressionModel.h"
 #include "../ValueModel.h"
 
 namespace core {

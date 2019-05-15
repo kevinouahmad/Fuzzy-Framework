@@ -5,32 +5,48 @@
 #ifndef FUZZY_COGDEFUZZ_H
 #define FUZZY_COGDEFUZZ_H
 
+#include "../../Core/Evaluator.h"
+#include "MamdaniDefuzz.h"
+
 namespace fuzzy
 {
     template <class T>
     class CogDefuzz : public MamdaniDefuzz<T>{
     public:
-        CogDefuzz(const T&, const T&, const T&);
+        CogDefuzz(const T, const T, const T);
+        T evaluate(Expression<T>*, Expression<T>*) const;
         T defuzz(const typename Evaluator<T>::Shape&)const;
+        typename Evaluator<T>::Shape buildShape(Expression<T>*, Expression<T>*) const;
+
+    private:
+        T start;
+        T end;
+        T step;
     };
 
     template <class T>
-    CogDefuzz<T>::CogDefuzz(const T& _min, const T& _max, const T& _step):
-    MamdaniDefuzz(_min,_max,_step)
-    {}
+    CogDefuzz<T>::CogDefuzz(const T _start, const T _end, const T _step): start(_start), end(_end), step(_step) {}
+
+    template <typename T>
+    T CogDefuzz<T>::evaluate(Expression<T> *left, Expression<T> *right) const {
+        return this->defuzz(buildShape(left, right));
+    }
 
     template <class T>
-    T CogDefuzz<T>::defuzz(const typename Evaluator<T>::Shape &s) const
+    T CogDefuzz<T>::defuzz(const typename Evaluator<T>::Shape &shape) const
     {
-        T x,y,num=0,den=0;
-        for(unsigned int i=0;i<(s.first.size()-1);i++)
+        T num=0, den=0;
+        for(unsigned int i = 0; i < shape.first.size(); i++)
         {
-            x=s.first.at(i);
-            y=s.second.at(i);
-            num+=x*y;
-            den+=y;
+            num += shape.first.at(i) * shape.second.at(i);
+            den += shape.second.at(i);
         }
-        return num/den
+        return num/den;
+    }
+
+    template <typename T>
+    typename Evaluator<T>::Shape CogDefuzz<T>::buildShape(Expression<T> *in, Expression<T> *out) const {
+        return Evaluator<T>::buildShape(start, end, step, (ValueModel<T>*)in, out);
     }
 }
 

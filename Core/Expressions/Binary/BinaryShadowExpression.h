@@ -11,7 +11,7 @@ namespace core {
     template <typename T>
     class BinaryShadowExpression :public BinaryExpression<T> {
     public:
-        BinaryShadowExpression(BinaryShadowExpression<T>* target = nullptr);
+        BinaryShadowExpression(BinaryExpression<T>* target = nullptr);
         virtual T evaluate(Expression<T>*, Expression<T>*) const;
         BinaryExpression<T>* getTarget() const;
         void setTarget(BinaryExpression<T>*);
@@ -22,14 +22,14 @@ namespace core {
     };
 
     template <typename T>
-    BinaryShadowExpression<T>::BinaryShadowExpression(core::BinaryShadowExpression<T> *_target) : target(_target){}
+    BinaryShadowExpression<T>::BinaryShadowExpression(core::BinaryExpression<T> *_target) : target(_target){}
 
     template <typename T>
     T BinaryShadowExpression<T>::evaluate(core::Expression<T> *left, core::Expression<T> *right) const {
         if (target != nullptr) {
             return target->evaluate(left, right);
         }
-        throw exceptions::NullPointerException("Target isn't defined");
+        return NULL;
     }
 
     template <typename T>
